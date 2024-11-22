@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>打地鼠遊戲（純 HTML）</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    #game-board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .hole {
+      width: 100px;
+      height: 100px;
+      background-color: #aaa;
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .hole:active {
+      background-color: #7f7f7f;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    p {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>打地鼠遊戲</h1>
+  <div id="game-board">
+    <div class="hole" onclick="incrementScore('hole1')"></div>
+    <div class="hole" onclick="incrementScore('hole2')"></div>
+    <div class="hole" onclick="incrementScore('hole3')"></div>
+    <div class="hole" onclick="incrementScore('hole4')"></div>
+    <div class="hole" onclick="incrementScore('hole5')"></div>
+    <div class="hole" onclick="incrementScore('hole6')"></div>
+    <div class="hole" onclick="incrementScore('hole7')"></div>
+    <div class="hole" onclick="incrementScore('hole8')"></div>
+    <div class="hole" onclick="incrementScore('hole9')"></div>
+  </div>
+
+  <div>
+    <p>得分: <span id="score">0</span></p>
+  </div>
+
+  <button onclick="startGame()">開始遊戲</button>
+
+  <script>
+    let score = 0;
+
+    function incrementScore(hole) {
+      score++;
+      document.getElementById("score").textContent = score;
+    }
+
+    function startGame() {
+      score = 0;
+      document.getElementById("score").textContent = score;
+    }
+  </script>
+
+</body>
+</html>
